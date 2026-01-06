@@ -17,9 +17,11 @@ fn main() {
 //IMPORTANT!! Submit Code Region Begin(Do not remove this line)
 impl Solution {
     pub fn can_construct(ransom_note: String, mut magazine: String) -> bool {
-        for c in ransom_note.chars() {
-            if let Some(i) = magazine.find(c) {
-                magazine.remove(i);
+        let magazine_bytes = unsafe { magazine.as_bytes_mut() };
+
+        for c in ransom_note.as_bytes() {
+            if let Some(i) = magazine_bytes.iter().position(|&x| x == *c) {
+                magazine_bytes[i] = 0;
             } else {
                 return false;
             }

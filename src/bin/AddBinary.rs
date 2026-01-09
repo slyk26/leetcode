@@ -45,12 +45,8 @@ impl Solution {
     }
 
     fn add_bit(s: &mut String, mut bit: u8, remainder: &mut bool, last: bool) {
-        if *remainder && !last {
-            bit += 1;
-        }
-
+        bit += 1 & (*remainder & !last) as u8;
         *remainder = bit >=2;
-
         s.insert(0, ((bit & 1) + 48) as char);
     }
 }

@@ -30,10 +30,7 @@ fn main() {
 
 //IMPORTANT!! Submit Code Region Begin(Do not remove this line)
 impl Solution {
-    pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
-        if nums1.is_empty() { nums1.append(nums2); }
-        if nums2.is_empty() { return; }
-
+    pub fn merge(nums1: &mut Vec<i32>, _: i32, nums2: &mut Vec<i32>, _: i32) {
         for (n1,n2) in nums1.iter_mut().rev().zip(nums2.iter()) {
             *n1 = *n2;
         }

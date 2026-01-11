@@ -16,26 +16,22 @@ fn main() {
 
 //IMPORTANT!! Submit Code Region Begin(Do not remove this line)
 impl Solution {
-    pub fn convert_to_title(column_number: i32) -> String {
+    pub fn convert_to_title(mut column_number: i32) -> String {
         let mut ret = String::new();
 
-        let mut x = column_number;
-        while x > 26 {
-            let help = x % 26;
+        while column_number > 26 {
+            let help = column_number % 26;
 
             match help {
                 0 => {
                     ret.insert(0, 'Z');
-                    x-=1;
+                    column_number-=1;
                 },
                 _ => ret.insert(0, (help + 64) as u8 as char)
             }
-
-            x /= 26;
+            column_number /= 26;
         }
-
-        ret.insert(0, (x + 64) as u8 as char);
-
+        ret.insert(0, (column_number + 64) as u8 as char);
         ret
     }
 }

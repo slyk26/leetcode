@@ -15,7 +15,7 @@ fn main() {
 //IMPORTANT!! Submit Code Region Begin(Do not remove this line)
 impl Solution {
     pub fn hamming_weight(n: i32) -> i32 {
-        n.count_ones() as i32
+        format!("{:b}", n).bytes().filter(|&x| x == b'1').count() as i32
     }
 }
 //IMPORTANT!! Submit Code Region End(Do not remove this line)

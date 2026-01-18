@@ -17,22 +17,17 @@ impl Solution {
     pub fn is_happy(n: i32) -> bool {
         let mut y = n;
         while y != 1 {
-            y = Self::calc(Self::arr(y));
+            y = Self::calc(y);
             if y == 4 { return false; }
         }
         true
     }
 
-    fn arr(n: i32) -> Vec<i32> {
+    fn calc(n: i32) -> i32 {
         n.to_string()
             .as_bytes()
             .iter()
-            .map(|b| (b - 48) as i32)
-            .collect::<Vec<i32>>()
-    }
-
-    fn calc(digits: Vec<i32>) -> i32 {
-        digits.iter().fold(0, |acc, digit| acc + digit.pow(2))
+            .fold(0, |acc, b| acc + (b - 48).pow(2) as i32)
     }
 }
 //IMPORTANT!! Submit Code Region End(Do not remove this line)

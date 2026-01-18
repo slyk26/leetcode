@@ -15,12 +15,10 @@ fn main() {
 //IMPORTANT!! Submit Code Region Begin(Do not remove this line)
 impl Solution {
     pub fn is_happy(n: i32) -> bool {
-        let mut first = true;
         let mut y = n;
         while y != 1 {
             y = Self::calc(Self::arr(y));
-            if y == 4 && !first { return false; }
-            first = false;
+            if y == 4 { return false; }
         }
         true
     }
